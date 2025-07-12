@@ -1,0 +1,24 @@
+---
+scrape_competitor_website:
+  description: Use the BrowserbaseLoadTool to scrape the website at {competitor_name_or_url}
+    and return the raw page text.
+  expected_output: Raw page text from the competitor's website.
+  async_execution: false
+  agent: web_crawl_specialist
+generate_swot_analysis:
+  description: Analyze the raw text from the competitor's website to identify strengths,
+    weaknesses, opportunities, and threats.
+  expected_output: A comprehensive SWOT analysis of the competitor's website content.
+  async_execution: false
+  agent: swot_analyst
+  context:
+  - scrape_competitor_website
+develop_strategic_action_items:
+  description: Based on the SWOT analysis, synthesize 3-5 strategic action items for
+    the team.
+  expected_output: 3-5 strategic action items derived from the SWOT analysis for competitive
+    advantage.
+  async_execution: false
+  agent: strategy_developer
+  context:
+  - generate_swot_analysis

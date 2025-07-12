@@ -2,6 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
+from crewai_tools import ScrapeWebsiteTool
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -20,35 +21,50 @@ class CompetitorAnalysis():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def web_crawl_specialist(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['web_crawl_specialist'],
+            tools=[ScrapeWebsiteTool()],
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def swot_analyst(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['swot_analyst'],
+            tools=[],
+        )
+
+    @agent
+    def strategy_developer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['strategy_developer'],
+            tools=[],
         )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def scrape_competitor_website(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['scrape_competitor_website'],
+            tools=[ScrapeWebsiteTool()],
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def generate_swot_analysis(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['generate_swot_analysis'],
+            tools=[],
         )
 
+    @task
+    def develop_strategic_action_items(self) -> Task:
+        return Task(
+            config=self.tasks_config['develop_strategic_action_items'],
+            tools=[],
+        )
+    
     @crew
     def crew(self) -> Crew:
         """Creates the CompetitorAnalysis crew"""

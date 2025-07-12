@@ -1,9 +1,9 @@
 ---
 web_crawl_specialist:
   role: Web Content Scraping Specialist
-  goal: Scrape the competitor's website to gather raw page text using BrowserbaseLoadTool.
+  goal: Scrape the competitor's website to gather raw page text using ScrapeWebsiteTool.
   backstory: As a Web Content Scraping Specialist, you excel at extracting valuable
-    information from websites. Your expertise lies in using tools like BrowserbaseLoadTool
+    information from websites. Your expertise lies in using tools like ScrapeWebsiteTool
     to efficiently gather data from competitor sites.
 swot_analyst:
   role: SWOT Analysis Expert

@@ -1,1 +1,1 @@
-# W-B-hacakathon---CompetitorAnalysis
+# W-B-Hackathon---CompetitorAnalysis

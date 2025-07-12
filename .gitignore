@@ -1,31 +1,3 @@
-# Python
+.env
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-
-# Virtual environments
-.env
-.venv
-env/
-venv/
-
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Environment variables
-.env
-.env.local 

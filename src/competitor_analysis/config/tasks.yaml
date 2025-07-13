@@ -1,7 +1,5 @@
----
 scrape_competitor_website:
-  description: Use the BrowserbaseLoadTool to scrape the website at {{competitor_name_or_url}} and return the raw page text.
-
+  description: Use the BrowserbaseLoadTool to scrape the website at {competitor_name_or_url} and return the raw page text.
   expected_output: Raw page text from the competitor's website.
   async_execution: false
   agent: web_crawl_specialist

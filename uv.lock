@@ -623,6 +623,7 @@ source = { editable = "." }
 dependencies = [
     { name = "crewai", extra = ["tools"] },
     { name = "streamlit" },
+    { name = "uvicorn" },
     { name = "weave" },
 ]
 
@@ -630,6 +631,7 @@ dependencies = [
 requires-dist = [
     { name = "crewai", extras = ["tools"], specifier = ">=0.141.0,<1.0.0" },
     { name = "streamlit", specifier = ">=1.46.1" },
+    { name = "uvicorn", specifier = ">=0.35.0" },
     { name = "weave", specifier = ">=0.51.56" },
 ]
 

@@ -5,7 +5,7 @@ import streamlit as st
 import os
 import time
 from datetime import datetime
-# from competitor_analysis.crew import CompetitorAnalysis
+from competitor_analysis.crew import CompetitorAnalysis
 try:
     from competitor_analysis.crew import CompetitorAnalysis
     CREW_AVAILABLE = True

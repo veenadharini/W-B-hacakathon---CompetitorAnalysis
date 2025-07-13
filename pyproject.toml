@@ -7,6 +7,7 @@ requires-python = ">=3.10,<3.14"
 dependencies = [
     "crewai[tools]>=0.141.0,<1.0.0",
     "streamlit>=1.46.1",
+    "weave>=0.51.56",
 ]
 
 [project.scripts]

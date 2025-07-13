@@ -3,10 +3,14 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List, Dict, Any
 from crewai_tools import ScrapeWebsiteTool
+import weave
+
+
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
-
+# Initialize Weave with your project name
+weave.init(project_name="competitor_analysis")
 @CrewBase
 class CompetitorAnalysis():
     """CompetitorAnalysis crew"""

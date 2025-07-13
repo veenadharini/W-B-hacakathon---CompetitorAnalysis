@@ -153,15 +153,40 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap');
+    :root { --bg:#F0F4FD; --text:#1E293B; --accent-start:#3B82F6; --accent-end:#1E40AF; }
+    .stApp { background-color:var(--bg); color:var(--text); }
+    .gradient-text {
+        background: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .stButton>button { width:100%!important; background:linear-gradient(90deg,var(--accent-start),var(--accent-end))!important; color:white!important; border:none; padding:0.75rem 1.5rem; font-family:'Open Sans'; font-weight:600; border-radius:8px; transition:transform .2s,box-shadow .2s; }
+    .stButton>button:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .analysis-container,.info-box { background:white!important; border-radius:8px; padding:0.5rem; margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Header
-st.markdown('<h1 class="main-header">🔍 Competitive Intelligence with CrewAI</h1>', unsafe_allow_html=True)
-
+# st.markdown('<h1 class="main-header">🔍 Competitive Intelligence with CrewAI</h1>', unsafe_allow_html=True)
+st.markdown(
+    "<h1 class='gradient-text' style='font-family:Poppins; text-align:center; font-size:3rem; margin:0 0;'>VyaparX</h1>",
+    unsafe_allow_html=True
+)
+st.markdown(
+    "<p style='font-family:Open Sans; text-align:center; font-size:1rem; margin-bottom:1.5rem;'>Your Personal Business Insider</p>",
+    unsafe_allow_html=True
+)
 # Subtitle/Description
 st.markdown("""
 <div class="subtitle">
 This app uses AI agents to analyze your competitors' websites and provide insights.<br>
-Enter a competitor's name or URL, and let the agents do the work!
+Enter a website's name or URL, and let the agents do the work!
 </div>
 """, unsafe_allow_html=True)
 
@@ -172,11 +197,11 @@ if 'analysis_history' not in st.session_state:
     st.session_state.analysis_history = []
 
 # Main input section
-st.markdown("### 📝 Enter Competitor Information")
+st.markdown("### 📝 Enter your business Information")
 
 # Input field
 competitor_input = st.text_input(
-    "Enter Competitor Name or URL",
+    "Enter your bussiness Name or URL",
     placeholder="e.g., nike.com or Adidas",
     help="You can enter either a company name or a website URL"
 )

@@ -1,7 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
-from typing import List
+from typing import List, Dict, Any
 from crewai_tools import ScrapeWebsiteTool
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -22,22 +22,25 @@ class CompetitorAnalysis():
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
     def web_crawl_specialist(self) -> Agent:
+        # config contains: role, goal, backstory
         return Agent(
-            config=self.agents_config['web_crawl_specialist'],
+            config=self.agents_config['web_crawl_specialist'],  # type: ignore
             tools=[ScrapeWebsiteTool()],
         )
 
     @agent
     def swot_analyst(self) -> Agent:
+        # config contains: role, goal, backstory
         return Agent(
-            config=self.agents_config['swot_analyst'],
+            config=self.agents_config['swot_analyst'],  # type: ignore
             tools=[],
         )
 
     @agent
     def strategy_developer(self) -> Agent:
+        # config contains: role, goal, backstory
         return Agent(
-            config=self.agents_config['strategy_developer'],
+            config=self.agents_config['strategy_developer'],  # type: ignore
             tools=[],
         )
 
@@ -46,22 +49,25 @@ class CompetitorAnalysis():
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
     def scrape_competitor_website(self) -> Task:
+        # config contains: description, expected_output
         return Task(
-            config=self.tasks_config['scrape_competitor_website'],
+            config=self.tasks_config['scrape_competitor_website'],  # type: ignore
             tools=[ScrapeWebsiteTool()],
         )
 
     @task
     def generate_swot_analysis(self) -> Task:
+        # config contains: description, expected_output
         return Task(
-            config=self.tasks_config['generate_swot_analysis'],
+            config=self.tasks_config['generate_swot_analysis'],  # type: ignore
             tools=[],
         )
 
     @task
     def develop_strategic_action_items(self) -> Task:
+        # config contains: description, expected_output
         return Task(
-            config=self.tasks_config['develop_strategic_action_items'],
+            config=self.tasks_config['develop_strategic_action_items'],  # type: ignore
             tools=[],
         )
     
